@@ -11,55 +11,70 @@ int registro()  //Função responsável por cadastrar os usuários no sistema
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
+	int resposta=0;
 	//Final criação de variáveis/string
 	
-	printf("Digite o CPF a ser cadastrado: \n"); //coletando informação do usuário
-	scanf("%s", cpf); //%s refere-se a string
+	printf("Quer registrar um usuário?\n\nDigite 1 para SIM e 2 para NÂO\n");
+	scanf("%d", &resposta);
 	
-	strcpy(arquivo, cpf); //responsável por copiar os valores das string
+	if(resposta == 1)
+	{
+		system("cls");
+		
+		printf("Digite o CPF a ser cadastrado: \n"); //coletando informação do usuário
+		scanf("%s", cpf); //%s refere-se a string
 	
-	FILE *file; //cria o arquivo
-	file = fopen(arquivo, "w"); //cria o arquivo na pasta, "w" escrever
-	fprintf(file,"\n CPF: ");
-	fprintf(file, cpf); //salva o valor da variavel
-	fclose(file); //fecha o arquivo
+		strcpy(arquivo, cpf); //responsável por copiar os valores das string
 	
-	file = fopen(arquivo, "a"); //virgula e estilização
-	fprintf(file, "\n NOME: ");
-	fclose(file);
-	
-	printf("\nDigite o nome a ser cadastrado: "); //coletando informação do usuário
-	scanf("%s", nome);
-	
-	file = fopen(arquivo, "a"); // "a" atualiza
-	fprintf(file, nome);
-	fclose(file);
-	
-	file = fopen(arquivo, "a"); //virgula e estilização
-	fprintf(file, "\n SOBRENOME: ");
-	fclose(file);
-	
-	printf("\nDigite o sobrenome a ser cadastrado: "); //coletando informação do usuário
-	scanf("%s", sobrenome);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, sobrenome);
-	fclose(file);
-	
-	file = fopen(arquivo, "a"); //virgula e estilização
-	fprintf(file, "\n CARGO: ");
-	fclose(file);
-	
-	printf("\nDigite o cargo a ser cadastrado: "); //coletando informação do usuário
-	scanf("%s", cargo);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file, cargo);
-	fprintf(file,"\n ");
-	fclose(file);
-	
-	printf("\nCadastro realizado com sucesso!\n");
-	system("pause");
+		FILE *file; //cria o arquivo
+		file = fopen(arquivo, "w"); //cria o arquivo na pasta, "w" escrever
+		fprintf(file,"\n CPF: ");
+		fprintf(file, cpf); //salva o valor da variavel
+		fclose(file); //fecha o arquivo
+		
+		file = fopen(arquivo, "a"); //virgula e estilização
+		fprintf(file, "\n NOME: ");
+		fclose(file);
+		
+		printf("\nDigite o nome a ser cadastrado: "); //coletando informação do usuário
+		scanf("%s", nome);
+		
+		file = fopen(arquivo, "a"); // "a" atualiza
+		fprintf(file, nome);
+		fclose(file);
+		
+		file = fopen(arquivo, "a"); //virgula e estilização
+		fprintf(file, "\n SOBRENOME: ");
+		fclose(file);
+		
+		printf("\nDigite o sobrenome a ser cadastrado: "); //coletando informação do usuário
+		scanf("%s", sobrenome);
+		
+		file = fopen(arquivo, "a");
+		fprintf(file, sobrenome);
+		fclose(file);
+		
+		file = fopen(arquivo, "a"); //virgula e estilização
+		fprintf(file, "\n CARGO: ");
+		fclose(file);
+		
+		printf("\nDigite o cargo a ser cadastrado: "); //coletando informação do usuário
+		scanf("%s", cargo);
+		
+		file = fopen(arquivo, "a");
+		fprintf(file, cargo);
+		fprintf(file,"\n ");
+		fclose(file);
+		
+		printf("\nCadastro realizado com sucesso!\n");
+		system("pause");
+	}
+	else
+	{
+		system("cls");
+		printf("Retorne ao menu principal!\n\n");
+		system("pause");
+	}
 }
 
 int consulta() //Função responsável por consultar o usuário no sistema
@@ -134,7 +149,7 @@ int deletar() //Função responsável por deletar o usuário do sistema
 		case 2:
 		resposta == 2;
 		fclose(file);
-		printf("\n Retorne ao menu! \n");
+		printf("\n Retorne ao menu principal! \n\n");
 		system("pause");
 		system("cls");
 		break;
